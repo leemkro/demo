@@ -1,0 +1,24 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5433/postgres
+    driver-class-name: org.postgresql.Driver
+    username: postgres
+    password: Only1Ican!@  # 실제 비밀번호로 변경
+
+  jpa:
+    hibernate:
+      ddl-auto: validate  # DDL 직접 관리하므로 validate 권장
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+# JWT 설정
+jwt:
+  secret: mySecretKeyForJwtTokenGenerationMustBeAtLeast256BitsLong12345
+  expiration: 604800000  # 7일 (밀리초)
+
+# 서버 설정
+server:
+  port: 8080
