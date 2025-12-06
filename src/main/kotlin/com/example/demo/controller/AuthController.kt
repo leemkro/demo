@@ -36,8 +36,8 @@ class AuthController(
     }
 
     @GetMapping("/me")
-    fun getCurrentUser(@AuthenticationPrincipal userPrincipal: UserPrincipal): ResponseEntity<Map<String, UserResponse>> {
+    fun getCurrentUser(@AuthenticationPrincipal userPrincipal: UserPrincipal): ResponseEntity<UserResponse> {
         val user = authService.getCurrentUser(userPrincipal.id)
-        return ResponseEntity.ok(mapOf("user" to user))
+        return ResponseEntity.ok(user)
     }
 }
