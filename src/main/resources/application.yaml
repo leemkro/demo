@@ -1,18 +1,17 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5433/postgres
-    driver-class-name: org.postgresql.Driver
+    url: jdbc:p6spy:postgresql://localhost:5433/postgres
+    driver-class-name: com.p6spy.engine.spy.P6SpyDriver
     username: postgres
     password: Only1Ican!@  # 실제 비밀번호로 변경
 
   jpa:
     hibernate:
       ddl-auto: validate  # DDL 직접 관리하므로 validate 권장
-    show-sql: true
+    show-sql: false
     properties:
       hibernate:
-        format_sql: true
-        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: false
 
 # JWT 설정
 jwt:
@@ -22,3 +21,8 @@ jwt:
 # 서버 설정
 server:
   port: 8080
+
+logging:
+  level:
+    org.hibernate.SQL: OFF
+    org.hibernate.type.descriptor.sql.BasicBinder: OFF

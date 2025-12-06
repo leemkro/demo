@@ -34,6 +34,10 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
+    // P6Spy starter to log SQL with inlined parameters (no need to change JDBC URL)
+//    implementation("com.github.gavlyukovskiy:p6spy-spring-boot-starter:1.12.1")
+    // 대신 p6spy 직접 사용
+    implementation("p6spy:p6spy:3.9.1")
 
 	// JWT
 	implementation("io.jsonwebtoken:jjwt-api:0.12.6")
