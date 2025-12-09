@@ -7,7 +7,4 @@ import com.example.demo.repository.UserRepository
 
 open class UserServicePractice(private val repository:UserRepository) {
 
-
-
-
 }
