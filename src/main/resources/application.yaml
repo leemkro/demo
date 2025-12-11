@@ -1,22 +1,22 @@
 spring:
   datasource:
-    url: jdbc:p6spy:postgresql://localhost:5433/postgres
+    url: ${SPRING_DATASOURCE_URL:jdbc:p6spy:postgresql://localhost:5433/postgres}
     driver-class-name: com.p6spy.engine.spy.P6SpyDriver
-    username: postgres
-    password: Only1Ican!@  # 실제 비밀번호로 변경
+    username: ${SPRING_DATASOURCE_USERNAME:postgres}
+    password: ${SPRING_DATASOURCE_PASSWORD:changeme}
 
   jpa:
     hibernate:
-      ddl-auto: validate  # DDL 직접 관리하므로 validate 권장
-    show-sql: false
+      ddl-auto: ${SPRING_JPA_HIBERNATE_DDL_AUTO:validate}
+    show-sql: ${SPRING_JPA_SHOW_SQL:false}
     properties:
       hibernate:
         format_sql: false
 
 # JWT 설정
 jwt:
-  secret: mySecretKeyForJwtTokenGenerationMustBeAtLeast256BitsLong12345
-  expiration: 604800000  # 7일 (밀리초)
+  secret: ${JWT_SECRET:mySecretKeyForJwtTokenGenerationMustBeAtLeast256BitsLong12345}
+  expiration: ${JWT_EXPIRATION:604800000}  # 7일 (밀리초)
 
 # 서버 설정
 server:
